@@ -1,0 +1,14 @@
+# config.yml
+
+backend:
+  name: git-gateway # backend protocol
+  branch: main # Branch name you want to CMS to pull from
+media_folder: "assets/uploads" # path in the repo of where users will upload assets
+collections: #! collections define the structure of different content types of the static site
+  - name: "blog" # used for routing
+    label: "Blog" # used in the UI
+    folder: "_posts/" # the path of where the documents are stored
+    fields: #fields of each document
+      - { name: Title }
+
+#? https://www.netlifycms.org/docs/add-to-your-site/#configuration MORE INFO...
