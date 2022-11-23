@@ -9,7 +9,7 @@ collections: #! collections define the structure of different content types of t
   - name: "blog" # used for routing
     label: "Blog" # used in the UI
     folder: "_posts/" # the path of where the documents are stored
-    fields: #fields of each document
+    fields: #fields of each documen
       - { label: Title, name: "title", widget:"text" }
   - name: "cooking-recipies" # used for routing
     label: "Cooking Recipies" # used in the UI
