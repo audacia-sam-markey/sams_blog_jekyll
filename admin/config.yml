@@ -10,11 +10,10 @@ collections: #! collections define the structure of different content types of t
     label: "Blog" # used in the UI
     folder: "_posts/" # the path of where the documents are stored
     fields: #fields of each document
-      - { name: Title, name: "title", widget:"text" }
+      - { label: Title, name: "title", widget:"text" }
   - name: "cooking-recipies" # used for routing
     label: "Cooking Recipies" # used in the UI
     folder: "_recipies/" # the path of where the documents are stored
     fields: #fields of each document
-      - { name: Title, name: "title", widget:"text" }
-    
+      - { label: Title, name: "title", widget:"text" }
 #? https://www.netlifycms.org/docs/add-to-your-site/#configuration MORE INFO...
