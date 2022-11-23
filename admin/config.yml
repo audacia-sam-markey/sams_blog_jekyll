@@ -3,11 +3,18 @@
 backend:
   name: git-gateway # backend protocol
   branch: master # Branch name you want to CMS to pull from
+  create: true #alows users to create new documents in this collection
 media_folder: "assets/uploads" # path in the repo of where users will upload assets
 collections: #! collections define the structure of different content types of the static site
   - name: "blog" # used for routing
     label: "Blog" # used in the UI
     folder: "_posts/" # the path of where the documents are stored
     fields: #fields of each document
-      - { name: Title }
+      - { name: Title, name: "title", widget:"text" }
+  - name: "cooking-recipies" # used for routing
+    label: "Cooking Recipies" # used in the UI
+    folder: "_recipies/" # the path of where the documents are stored
+    fields: #fields of each document
+      - { name: Title, name: "title", widget:"text" }
+    
 #? https://www.netlifycms.org/docs/add-to-your-site/#configuration MORE INFO...
