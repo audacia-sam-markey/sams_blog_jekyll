@@ -12,5 +12,26 @@ layout: default
   </head>
   <body>
     <h1>{{ "Welcome to my blogging site" | downcase }}</h1>
+
+    <h1>Subscribe to mailing list</h1>
+
+    <form>
+      <label>
+        Email Address:
+        <input type="email" />
+      </label>
+      <input type="submit" value="Subscribe" />
+    </form>
+
+    <script>
+      const form = document.querySelector("form");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const emailAddr = form.querySelector('input[type="email"]').value;
+
+        subscriptToMailingList(email, "test");
+      });
+    </script>
   </body>
 </html>
