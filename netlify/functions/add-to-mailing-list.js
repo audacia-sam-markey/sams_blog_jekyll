@@ -1,6 +1,6 @@
-import fetch from "node-fetch";
 const API_ENDPOINT = "https://api.gridfox.com/data/Subscribers";
 export async function subscribeToMailingList(event, context) {
+  const fetch = require("node-fetch");
   // Only allow POST
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
