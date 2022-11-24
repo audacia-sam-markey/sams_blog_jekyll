@@ -24,13 +24,16 @@ layout: default
     </form>
 
     <script>
+      import subscribeToMailingList from "/.netlify/functions/add-to-mailing-list";
       const form = document.querySelector("form");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         const emailAddr = form.querySelector('input[type="email"]').value;
-
-        subscriptToMailingList(email, "test");
+        const event = {
+          httpMethod: "POST",
+        };
+        console.log(subscribeToMailingList(event, emailAddr));
       });
     </script>
   </body>

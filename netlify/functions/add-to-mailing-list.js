@@ -1,16 +1,12 @@
 import fetch from "node-fetch";
-const API_ENDPOINT = "https://api.gridfox.com/";
-export async function handler(event, context) {
+const API_ENDPOINT = "https://api.gridfox.com/data/Subscribers";
+export async function subscribeToMailingList(event, email) {
   // Only allow POST
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
-  // When the method is POST, the name will no longer be in the event’s
-  // queryStringParameters – it’ll be in the event body encoded as a queryString
-  const params = querystring.parse(event.body);
-  const name = params.name;
   const data = {
-    "Field Name": "Field Value",
+    Email: email,
   };
   return fetch(API_ENDPOINT, {
     headers: {
@@ -24,7 +20,7 @@ export async function handler(event, context) {
     .then((response) => response.json())
     .then((data) => ({
       statusCode: 200,
-      body: JSON.stringify(),
+      body: JSON.stringify(data),
     }))
     .catch((error) => ({ statusCode: 422, body: String(error) }));
 }
