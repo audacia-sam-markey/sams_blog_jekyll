@@ -1,12 +1,14 @@
 import fetch from "node-fetch";
 const API_ENDPOINT = "https://api.gridfox.com/data/Subscribers";
-export async function subscribeToMailingList(event, email) {
+export async function subscribeToMailingList(event, context) {
   // Only allow POST
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
+
+  const params = querystring.parse(event.body);
   const data = {
-    Email: email,
+    Email: params.email,
   };
   return fetch(API_ENDPOINT, {
     headers: {

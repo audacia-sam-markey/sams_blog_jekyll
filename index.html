@@ -24,17 +24,27 @@ layout: default
     </form>
 
     <script>
-      import subscribeToMailingList from "/.netlify/functions/add-to-mailing-list";
       const form = document.querySelector("form");
 
-      form.addEventListener("submit", (e) => {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
         const emailAddr = form.querySelector('input[type="email"]').value;
-        const event = {
-          httpMethod: "POST",
-        };
-        console.log(subscribeToMailingList(event, emailAddr));
+
+        const addEmailToMailList = await fetch(
+          "/.netlify/functions/add-to-mailing-list",
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "POST",
+
+            body: {
+              "email": emailAddr,
+            },
+          }
+        );
       });
+      console.log(addEmailToMailList);
     </script>
   </body>
 </html>
