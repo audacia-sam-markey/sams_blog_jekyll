@@ -1,13 +1,13 @@
 # config.yml
 
-media_folder: "assets/uploads" # path in the repo of where users will upload assets
-local_backend: true #running locally
 backend:
   name: git-gateway # backend protocol
   branch:
     master
     # Branch name you want to CMS to pull from
     #alows users to create new documents in this collection
+media_folder: "assets/uploads" # path in the repo of where users will upload assets
+local_backend: true #running locally
 collections: #! collections define the structure of different content types of the static site
   - name: "blog" # used for routing
     create: true
@@ -59,4 +59,19 @@ collections: #! collections define the structure of different content types of t
             fields:
               - { label: Name, name: name, widget: string }
               - { label: Link, name: link, widget: string }
+  - name: "themes"
+    label: "Themes"
+    editor:
+      preview: false
+    files:
+      - label: "Default Color Scheme"
+        name: "default-color-scheme"
+        file: "_data/default-color-scheme.yml"
+        fields:
+          - label: "Background color"
+            name: "background-color"
+            widget: "color"
+          - label: "Text color"
+            name: "text-color"
+            widget: "color"
 #? https://www.netlifycms.org/docs/add-to-your-site/#configuration MORE INFO...
