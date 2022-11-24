@@ -30,19 +30,15 @@ layout: default
         e.preventDefault();
         const emailAddr = form.querySelector('input[type="email"]').value;
 
-        const addEmailToMailList = await fetch(
-          "/.netlify/functions/add-to-mailing-list",
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-            method: "POST",
+        const jsondata = JSON.stringify({ email: emailAddr });
+        const addEmailToMailList = await fetch("/.netlify/functions/handler", {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
 
-            body: {
-              "email": emailAddr,
-            },
-          }
-        );
+          body: jsondata,
+        });
         console.log(addEmailToMailList);
       });
     </script>

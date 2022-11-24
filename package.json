@@ -1,5 +1,27 @@
 {
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
-    "node-fetch": "^3.3.0"
-  }
+    "data-uri-to-buffer": "^4.0.0",
+    "fetch-blob": "^3.2.0",
+    "formdata-polyfill": "^4.0.10",
+    "node-domexception": "^1.0.0",
+    "node-fetch": "^3.3.0",
+    "web-streams-polyfill": "^3.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/audacia-sam-markey/sams_blog_jekyll.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/audacia-sam-markey/sams_blog_jekyll/issues"
+  },
+  "homepage": "https://github.com/audacia-sam-markey/sams_blog_jekyll#readme"
 }
