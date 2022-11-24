@@ -1,0 +1,7 @@
+items:
+  - name: home
+    link: /
+  - name: posts
+    link: /posts.html
+  - name: admin portal
+    link: /admin/index.html

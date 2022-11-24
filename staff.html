@@ -1,0 +1,14 @@
+---
+layout: author
+---
+
+<h1>Authors</h1>
+{{site.authors | jsonify}}
+<ul>
+  {% for author in site.authors %}
+
+  <li>
+    <h2>>{{author.name}}</h2>
+  </li>
+  {% endfor %}
+</ul>

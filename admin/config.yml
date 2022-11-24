@@ -1,19 +1,62 @@
 # config.yml
 
+media_folder: "assets/uploads" # path in the repo of where users will upload assets
+local_backend: true #running locally
 backend:
   name: git-gateway # backend protocol
-  branch: master # Branch name you want to CMS to pull from
-  create: true #alows users to create new documents in this collection
-media_folder: "assets/uploads" # path in the repo of where users will upload assets
+  branch:
+    master
+    # Branch name you want to CMS to pull from
+    #alows users to create new documents in this collection
 collections: #! collections define the structure of different content types of the static site
   - name: "blog" # used for routing
+    create: true
     label: "Blog" # used in the UI
     folder: "_posts/" # the path of where the documents are stored
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields: #fields of each documen
-      - { label: Title, name: "title", widget:"text" }
-  - name: "cooking-recipies" # used for routing
-    label: "Cooking Recipies" # used in the UI
-    folder: "_recipies/" # the path of where the documents are stored
+      - { label: "layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Blog Title", name: "title", widget: "string" }
+      - { label: "Blog Body", name: "content", widget: "text" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "relation",
+          collection: "authors",
+          display_fields: [display_name],
+          search_fields: [display_name],
+          value_field: "name",
+        }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+
+      #! AUTHORS COLLECTION
+  - name: "authors" # used for routing
+    create: true
+    label: "Authors" # used in the UI
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: "_authors/" # the path of where the documents are stored
+    editor:
+      preview: false
     fields: #fields of each document
-      - { label: Title, name: "title", widget:"text" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "author" }
+      - { label: "Short Name", name: "name", widget: "string" }
+      - { label: "Display Name", name: "display_name", widget: "string" }
+      - { label: "Position", name: "position", widget: "string" }
+      - { label: "description", name: "description", widget: "text" }
+      # ! NAVIGATION COLLECTION
+  - name: "config"
+    label: "Config"
+    editor:
+      preview: false
+    files:
+      - label: "Navigation"
+        name: "navigation"
+        file: "_data/navigation.yml"
+        fields:
+          - label: "Navigation Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Link, name: link, widget: string }
 #? https://www.netlifycms.org/docs/add-to-your-site/#configuration MORE INFO...
