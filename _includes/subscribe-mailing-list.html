@@ -1,0 +1,28 @@
+<section class="mailing-container">
+  <h2>Subscribe to our mailing list</h2>
+  <form>
+    <input type="email" placeholder="Type Email Here..." />
+    <input type="submit" value="Subscribe" />
+  </form>
+</section>
+
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const emailAddr = form.querySelector('input[type="email"]').value;
+
+    const jsondata = JSON.stringify({ email: emailAddr });
+    const addEmailToMailList = await fetch("/.netlify/functions/handler", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: jsondata,
+    });
+    if (addEmailToMailList.ok) {
+      alert("you have been added to our mailing list!");
+    }
+  });
+</script>

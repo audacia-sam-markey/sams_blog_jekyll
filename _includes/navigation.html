@@ -1,5 +1,8 @@
-<nav>
-  {% for item in site.data.navigation.items %}
-  <a href="{{ site.baseurl }}{{ item.link }}" {% if page.url == item.link %} style="color:red;" {% endif %} > {{ item.name }}</a>
-  {% endfor %}
-</nav>
+<header>
+<h1>Sams Blogs</h1>
+  <nav>
+    {% for item in site.data.navigation.items %}
+    <a href="{{ site.baseurl }}{{ item.link }}" {% if page.url == item.link %} style="color:rgb(202, 43, 43);" {% endif %} > {{ item.name }}</a>
+    {% endfor %}
+  </nav>
+</header>

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   {% include head.html %}
-  <body
-    style="background-color: {{site.data.default-color-scheme.background-color}}; color:{{site.data.default-color-scheme.text-color}};"
-  >
-    {% include navigation.html %} {{content}}
+  <body>
+    {% include navigation.html %}
+    <div class="master-container">
+      {{content}}{% include subscribe-mailing-list.html %}
+    </div>
   </body>
 </html>

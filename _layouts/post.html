@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<article>
+  <section>
+
+    <h2>{{page.title}}</h2>
+   
+  </section>
+  <p>
+    {{ page.date | date_to_string }} | By: {{page.author}}
+  </p>
+  {{content | markdownify}}
+   
+</article>

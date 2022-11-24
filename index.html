@@ -1,5 +1,4 @@
 ---
-title: Sams Blogs
 layout: default
 ---
 
@@ -7,42 +6,10 @@ layout: default
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>{{ page.title }}</title>
+    <title>{{ page.name }}</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <h1>{{ "Welcome to my blogging site" | downcase }}</h1>
-
-    <h1>Subscribe to mailing list</h1>
-
-    <form>
-      <label>
-        Email Address:
-        <input type="email" />
-      </label>
-      <input type="submit" value="Subscribe" />
-    </form>
-
-    <script>
-      const form = document.querySelector("form");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const emailAddr = form.querySelector('input[type="email"]').value;
-
-        const jsondata = JSON.stringify({ email: emailAddr });
-        const addEmailToMailList = await fetch("/.netlify/functions/handler", {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "POST",
-
-          body: jsondata,
-        });
-        if (addEmailToMailList.ok) {
-          alert("you have been added to our mailing list!");
-        }
-      });
-    </script>
   </body>
 </html>

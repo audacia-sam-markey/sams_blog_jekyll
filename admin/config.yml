@@ -15,9 +15,9 @@ collections: #! collections define the structure of different content types of t
     folder: "_posts/" # the path of where the documents are stored
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields: #fields of each documen
-      - { label: "layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Blog Title", name: "title", widget: "string" }
-      - { label: "Blog Body", name: "content", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
       - {
           label: "Author",
           name: "author",
